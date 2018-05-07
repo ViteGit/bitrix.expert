@@ -44,3 +44,12 @@ RewriteRule ^(.*)$ /bitrix/virtual_file_system.php [L]
   ExpiresByType image/jpeg "access plus 3 day"
   ExpiresByType image/gif "access plus 3 day"
 </IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+    RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+</IfModule>
