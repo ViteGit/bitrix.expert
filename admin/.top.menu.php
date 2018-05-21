@@ -20,6 +20,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Форма", 
+		"/admin/forma/", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>
