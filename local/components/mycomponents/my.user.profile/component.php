@@ -32,11 +32,11 @@ $arResult["GROUP_POLICY"] = CUser::GetGroupPolicy($arResult["ID"]);
 $arParams['SEND_INFO'] = $arParams['SEND_INFO'] == 'Y' ? 'Y' : 'N';
 $arParams['CHECK_RIGHTS'] = $arParams['CHECK_RIGHTS'] == 'Y' ? 'Y' : 'N';
 
-if(!($arParams['CHECK_RIGHTS'] == 'N' || $USER->CanDoOperation('edit_own_profile')) || $arResult["ID"]<=0)
-{
-	$APPLICATION->ShowAuthForm("");
-	return;
-}
+//if(!($arParams['CHECK_RIGHTS'] == 'N' || $USER->CanDoOperation('edit_own_profile')) || $arResult["ID"]<=0)
+//{
+//	$APPLICATION->ShowAuthForm("");
+//	return;
+//}
 
 $strError = '';
 

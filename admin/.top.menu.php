@@ -27,6 +27,27 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Случайный товар", 
+		"/admin/rand_product/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Загрузка изображений", 
+		"/admin/img_upload/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Новые пользователи", 
+		"/admin/user_new/", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>

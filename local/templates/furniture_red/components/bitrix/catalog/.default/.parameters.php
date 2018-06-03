@@ -17,4 +17,5 @@ $arTemplateParameters = array(
 		"PARENT" => 'ADDITIONAL_SETTINGS',
 	),
 );
+
 ?>

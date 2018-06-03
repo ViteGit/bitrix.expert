@@ -24,7 +24,7 @@ $arUrlRewrite=array (
     'PATH' => '/services/index.php',
     'SORT' => 100,
   ),
-  1 => 
+  6 => 
   array (
     'CONDITION' => '#^/products/#',
     'RULE' => '',
@@ -32,7 +32,7 @@ $arUrlRewrite=array (
     'PATH' => '/products/index.php',
     'SORT' => 100,
   ),
-  4 => 
+  7 => 
   array (
     'CONDITION' => '#^/news/#',
     'RULE' => '',

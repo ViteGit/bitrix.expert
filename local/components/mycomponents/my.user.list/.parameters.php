@@ -13,7 +13,7 @@ $arComponentParameters = array(
 			"PARENT" => "URL_TEMPLATES",
 			"NAME" => GetMessage("F_PROFILE_VIEW_TEMPLATE"),
 			"TYPE" => "STRING",
-			"DEFAULT" => "profile_view.php?UID=#UID#"),
+			"DEFAULT" => "/admin/users/#LOGIN#/"),
 
 		"USERS_PER_PAGE" => Array(
 			"PARENT" => "ADDITIONAL_SETTINGS",

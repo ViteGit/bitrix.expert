@@ -2,6 +2,7 @@
 <div class="catalog-detail">
 	<div class="catalog-item">
 <?
+
 $width = 0;
 if($arParams['DETAIL_SHOW_PICTURE'] != 'N' && (is_array($arResult["PREVIEW_PICTURE"]) || is_array($arResult["DETAIL_PICTURE"]))):
 ?>
