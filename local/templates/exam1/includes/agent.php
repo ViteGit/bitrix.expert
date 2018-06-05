@@ -28,6 +28,8 @@ function findNewUsers()
         }
     }
 
+    if (!empty($users)){
+
     $data = '';
     foreach ($users as $key => $value) {
         $data .= $value['EMAIL'] . ": ";
@@ -49,6 +51,7 @@ function findNewUsers()
     ];
 
     CEvent::Send("SEARCHING_NEW_USERS", SITE_ID, $arEventFields);
+    }
 
     return 'findNewUsers();';
 }
