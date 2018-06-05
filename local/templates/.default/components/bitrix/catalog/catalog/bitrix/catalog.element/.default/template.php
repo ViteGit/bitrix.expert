@@ -96,3 +96,14 @@ endif;
 ?>
 	</div>
 </div>
+
+
+
+<?
+
+
+$this->SetViewTarget('My');
+echo $arResult['NAME'];
+$this->EndViewTarget();
+
+?>

@@ -44,7 +44,12 @@ $APPLICATION->IncludeFile(
 ?></a></td>
 				</tr>
 			</table>
-			
+
+
+            <div style="position:absolute;top:80px;left:300px;background:green;color:white;">время работы: круглосуточно</div>
+
+            <div style="position:absolute;top:100px;left:300px;background:red;color:white;"><? $APPLICATION->ShowViewContent('My');?></div>
+
 			<div id="top-menu">
 				<div id="top-menu-inner">
 <?$APPLICATION->IncludeComponent(
