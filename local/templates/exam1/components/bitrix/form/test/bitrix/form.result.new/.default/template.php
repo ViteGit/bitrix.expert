@@ -104,6 +104,8 @@ if($arResult["isUseCaptcha"] == "Y")
 		</tr>
 	</tfoot>
 </table>
+
+    <?//debug($arResult)?>
 <p>
 <?=$arResult["REQUIRED_SIGN"];?> - <?=GetMessage("FORM_REQUIRED_FIELDS")?>
 </p>

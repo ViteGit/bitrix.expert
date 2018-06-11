@@ -81,3 +81,4 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
 	<br /><?=$arResult["NAV_STRING"]?>
 <?endif;?>
 </div>
+

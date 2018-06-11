@@ -142,6 +142,7 @@ if ($arParams["VIEW_URL"]) {
 ?>
 <? if ($arResult["FORM_NOTE"]): ?><?= $arResult["FORM_NOTE"] ?><? endif ?>
 <? if ($arResult["isFormErrors"] == "Y"): ?><?= $arResult["FORM_ERRORS_TEXT"]; ?><? endif; ?>
+
 <table class="form-table data-table">
     <thead>
     <tr>
@@ -210,6 +211,7 @@ if ($arParams["VIEW_URL"]) {
     </tr>
     </tfoot>
 </table>
+
 <p>
     <?= $arResult["REQUIRED_SIGN"] ?> - <?= GetMessage("FORM_REQUIRED_FIELDS") ?>
 </p>

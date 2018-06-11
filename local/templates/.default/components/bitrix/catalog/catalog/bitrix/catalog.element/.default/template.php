@@ -1,9 +1,9 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="catalog-detail">
 	<div class="catalog-item">
-
+		<a href="#add_form" id='wanna_cheaper'>хочу дешевле</a>
         <?
-
+    //    debug($arResult);
 
 $width = 0;
 if($arParams['DETAIL_SHOW_PICTURE'] != 'N' && (is_array($arResult["PREVIEW_PICTURE"]) || is_array($arResult["DETAIL_PICTURE"]))):

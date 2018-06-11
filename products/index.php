@@ -18,7 +18,7 @@ $APPLICATION->SetTitle("Продукция");
 		"BASKET_URL" => "",
 		"CACHE_FILTER" => "N",
 		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "36000000",
+		"CACHE_TIME" => "0",
 		"CACHE_TYPE" => "A",
 		"COMPATIBLE_MODE" => "Y",
 		"COMPONENT_TEMPLATE" => "catalog",
@@ -98,5 +98,22 @@ $APPLICATION->SetTitle("Продукция");
 		"USE_STORE" => "N"
 	)
 );?>
+<div style="display:none">
+	<div id="add_form">
+		 <?$APPLICATION->IncludeComponent(
+	"mycomponents:my.hl.add.form",
+	".default",
+	Array(
+		"BLOCK_ID" => "1",
+		"CHECK_PERMISSIONS" => "N",
+		"COMPONENT_TEMPLATE" => ".default",
+		"LIST_URL" => "",
+		"ROW_ID" => $_REQUEST["ID"],
+		"ROW_KEY" => "ID"
+	)
+);?>
+	</div>
+</div>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+
+ <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

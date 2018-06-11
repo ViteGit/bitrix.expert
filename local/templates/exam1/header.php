@@ -20,7 +20,6 @@ IncludeTemplateLangFile(__FILE__);
     <?$APPLICATION->AddHeadScript("/local/templates/exam1/fancybox/jquery.fancybox-1.3.4.pack.js")?>
     <?$APPLICATION->AddHeadScript("/local/templates/exam1/fancybox/jquery.mousewheel-3.0.4.pack.js")?>
 
-
     <?$APPLICATION->ShowHead();?>
 
     <!--[if gte IE 9]><style type="text/css">.gradient {filter: none;}</style><![endif]-->

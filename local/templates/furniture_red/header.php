@@ -6,11 +6,23 @@ IncludeTemplateLangFile(__FILE__);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<?$APPLICATION->ShowHead();?>
 <link href="<?=SITE_TEMPLATE_PATH?>/common.css" type="text/css" rel="stylesheet" />
 <link href="<?=SITE_TEMPLATE_PATH?>/colors.css" type="text/css" rel="stylesheet" />
 
-	<!--[if lte IE 6]>
+
+    <script type="text/javascript" src="/local/templates/exam1/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/local/templates/exam1/js/slides.min.jquery.js"></script>
+    <script type="text/javascript" src="/local/templates/exam1/js/jquery.carouFredSel-6.1.0-packed.js"></script>
+
+    <link href="/local/templates/exam1/fancybox/jquery.fancybox-1.3.4.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/local/templates/exam1/fancybox/jquery.easing-1.3.pack.js"></script>
+    <script type="text/javascript" src="/local/templates/exam1/fancybox/jquery.fancybox-1.3.4.js"></script>
+    <script type="text/javascript" src="/local/templates/exam1/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" src="/local/templates/exam1/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+
+    <?$APPLICATION->ShowHead();?>
+
+    <!--[if lte IE 6]>
 	<style type="text/css">
 		
 		#banner-overlay { 

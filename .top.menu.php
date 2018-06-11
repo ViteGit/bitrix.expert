@@ -48,6 +48,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"хочу дешевле", 
+		"/lowprice/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,3,4,7,5,6))" 
 	)
 );
 ?>
