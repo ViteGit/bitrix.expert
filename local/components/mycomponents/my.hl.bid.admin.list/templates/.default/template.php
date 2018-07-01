@@ -1,14 +1,10 @@
 <?
-
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 if (!empty($arResult['ERROR'])) {
     echo $arResult['ERROR'];
     return false;
 }
-
-$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/js/highloadblock/css/highloadblock.css');
-
 ?>
 
 <?
@@ -70,19 +66,19 @@ $arFields[] = array(
     <thead>
     <tr>
         <th>
-            <?= $arResult["fields"]["UF_ARTNUMBER"]["EDIT_FORM_LABEL"] ?>
+            <?= 'Артикул' ?>
         </th>
 
         <th>
-            <?= $arResult["fields"]["UF_PRODUCT_NAME"]["EDIT_FORM_LABEL"] ?>
+            <?= 'Название Продукта' ?>
         </th>
 
         <th>
-            <?= $arResult["fields"]["UF_DATE"]["EDIT_FORM_LABEL"] ?>
+            <?= 'Дата' ?>
         </th>
 
         <th>
-            <?= $arResult["fields"]["UF_STATUS"]["EDIT_FORM_LABEL"] ?>
+            <?= 'Статус' ?>
         </th>
     </tr>
 
@@ -90,14 +86,27 @@ $arFields[] = array(
     <tbody>
     <? foreach ($arResult["rows"] as $key => $arItem): ?>
 
-    <tr class="elem" data-id="<?=$arItem["ID"]?>">
+    <?
+    $query = CIBlockElement::GetByID($arItem['UF_ELEMENT_ID']);
+    $arProduct = $query->fetch();
+
+    $query = CIBlockElement::GetProperty($arProduct['IBLOCK_ID'], $arProduct['ID'], $arOrder = []);
+    while ($prop = $query->fetch()){
+    if ($prop['CODE'] == 'ARTNUMBER'){
+    $arProduct['ARTNUMBER'] = $prop['VALUE'];
+    }
+    }
+    ?>
+
+
+    <tr class="elem" data-id="<?= $arItem["ID"] ?>">
         <a href="">
             <td>
-                <?= $arItem["UF_ARTNUMBER"] ?>
+                <?= $arProduct['ARTNUMBER'] ?>
             </td>
 
             <td>
-                <?= $arItem["UF_PRODUCT_NAME"] ?>
+                <?= $arProduct['NAME'] ?>
             </td>
 
             <td>

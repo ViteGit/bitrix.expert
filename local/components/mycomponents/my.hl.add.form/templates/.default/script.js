@@ -1,7 +1,3 @@
-/**
- * Created by Вован on 06.06.2018.
- */
-
 
 $(document).ready(function () {
 
@@ -17,7 +13,7 @@ $(document).ready(function () {
                     error = true;
                 }
         } else {
-            $.fancybox('Мы вам сообщим свое решение');
+       //     $.fancybox('Мы вам сообщим свое решение');
         }
     });
 
@@ -29,4 +25,5 @@ $(document).ready(function () {
         //'easingOut': 'easeInBack',
         'hideOnContentClick': false,
     });
+
 });

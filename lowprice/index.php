@@ -38,16 +38,18 @@ $APPLICATION->SetTitle("хочу дешевле");
 <br>
  <br>
  <?$APPLICATION->IncludeComponent(
-	"mycomponents:my.hl.bid.list",
-	"",
-	Array(
+	"mycomponents:my.hl.bid.list", 
+	".default", 
+	array(
 		"BLOCK_ID" => "1",
 		"CHECK_PERMISSIONS" => "N",
 		"DETAIL_URL" => "",
 		"FILTER_NAME" => "",
 		"PAGEN_ID" => "page",
-		"ROWS_PER_PAGE" => "",
+		"ROWS_PER_PAGE" => "5",
 		"SORT_FIELD" => "ID",
-		"SORT_ORDER" => "DESC"
-	)
+		"SORT_ORDER" => "DESC",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
 );?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

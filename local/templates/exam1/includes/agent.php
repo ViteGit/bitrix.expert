@@ -10,47 +10,47 @@ CAgent::AddAgent("findNewUsers();");
 
 function findNewUsers()
 {
-    $arFilter = [
-        'TIMESTAMP_1' => date('d.m.Y'),
-        'TIMESTAMP_2' => date('d.m.Y')
-    ];
+
+    $from = date('d.m.Y H:i:s', time() - 3600 * 24);
+    $to = date('d.m.Y H:i:s');
+
+    $arFilter = array(
+        "DATE_REGISTER_1" => $from,
+        "DATE_REGISTER_2" => $to
+    );
 
     $arParams = ['FIELDS' => ['EMAIL', 'DATE_REGISTER']];
 
     $query = CUser::GetList($by = "date_register", $order = 'DESC', $arFilter, $arParams);
 
     while ($user = $query->Fetch()) {
-        $unix = strtotime($user['DATE_REGISTER']);
-        $date = date('d.m.Y', $unix);
+        $users[] = $user;
+    }
 
-        if ($date == date('d.m.Y')) {
-            $users[] = $user;
+
+    if (!empty($users)) {
+
+        $data = '';
+        foreach ($users as $key => $value) {
+            $data .= $value['EMAIL'] . ": ";
+            $data .= $value['DATE_REGISTER'] . ", \r\n";
         }
-    }
+        $datas = rtrim($data, ", \r\n");
 
-    if (!empty($users)){
+        $query = CUSER::GetList($by = "id", $order = "DESC", $arFilter = ['GROUPS_ID' => [1]], $arParams = ['FIELDS' => ['EMAIL']]);
 
-    $data = '';
-    foreach ($users as $key => $value) {
-        $data .= $value['EMAIL'] . ": ";
-        $data .= $value['DATE_REGISTER'] . ", \r\n";
-    }
-    $datas = rtrim($data, ", \r\n");
+        while ($admin = $query->Fetch()) {
+            $admins[] = $admin['EMAIL'];
+        }
 
-    $query = CUSER::GetList($by = "id", $order = "DESC", $arFilter = ['GROUPS_ID' => [1]], $arParams = ['FIELDS' => ['EMAIL']]);
+        $admins = implode(', ', $admins);
 
-    while ($admin = $query->Fetch()) {
-        $admins[] = $admin['EMAIL'];
-    }
+        $arEventFields = [
+            'ADMIN' => $admins,
+            'INFO' => $datas,
+        ];
 
-    $admins = implode(', ', $admins);
-
-    $arEventFields = [
-        'ADMIN' => $admins,
-        'INFO' => $datas,
-    ];
-
-    CEvent::Send("SEARCHING_NEW_USERS", SITE_ID, $arEventFields);
+        CEvent::Send("SEARCHING_NEW_USERS", SITE_ID, $arEventFields);
     }
 
     return 'findNewUsers();';

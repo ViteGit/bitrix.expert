@@ -1,12 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?
-//debug ($arResult);
-
-$GLOBALS['HLblock']['ELEMENT_ID'] = $arResult["ID"];
-$GLOBALS['HLblock']['NAME'] = $arResult["NAME"];
-$GLOBALS['HLblock']['DETAIL_PAGE_URL'] = $arResult["DETAIL_PAGE_URL"];
-$GLOBALS['HLblock']['ARTNUMBER'] = $arResult["PROPERTIES"]["ARTNUMBER"]["VALUE"];
-
 
 // hack
 if (!is_array($arResult['SECTION']))

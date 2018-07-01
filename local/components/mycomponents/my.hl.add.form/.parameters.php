@@ -4,6 +4,14 @@ $arComponentParameters = array(
 	'GROUPS' => array(
 	),
 	'PARAMETERS' => array(
+
+        'ELEMENT_ID' => array(
+            'PARENT' => 'BASE',
+            'NAME' => 'ELEMENT_ID',
+            'TYPE' => 'TEXT',
+            'DEFAULT' => '={$arResult[\'ID\']}'
+        ),
+
 		'BLOCK_ID' => array(
 			'PARENT' => 'BASE',
 			'NAME' => GetMessage('HLVIEW_COMPONENT_BLOCK_ID_PARAM'),

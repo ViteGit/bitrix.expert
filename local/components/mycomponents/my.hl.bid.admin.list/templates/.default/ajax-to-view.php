@@ -8,10 +8,8 @@ CModule::IncludeModule('iblock');
 
 
 <?
-//debug($_GET);
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $row_id = $_GET['id'];
 
+if (isset($_GET['id']) && !empty($_GET['id'])) {
 
     $APPLICATION->IncludeComponent(
         "mycomponents:my.hl.bid.admin.view",
@@ -22,7 +20,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             "CHECK_PERMISSIONS" => "N",
             "COMPONENT_TEMPLATE" => ".default",
             "LIST_URL" => "/admin/lowprice/",
-            "ROW_ID" => $row_id,
+            "ROW_ID" => $_GET['id'],
             "ROW_KEY" => "ID",
             "USER_PROFILE" => "/admin/users/#LOGIN#/"
         )

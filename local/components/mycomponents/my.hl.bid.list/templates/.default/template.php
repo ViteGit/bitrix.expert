@@ -1,5 +1,4 @@
 <?
-
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 if (!empty($arResult['ERROR'])) {
@@ -7,77 +6,102 @@ if (!empty($arResult['ERROR'])) {
     return false;
 }
 
-$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/js/highloadblock/css/highloadblock.css');
-
 ?>
 
 
-<table cellspacing="0" class="reports-list-table" id="report-result-table">
-    <thead>
-    <tr>
-        <th>
-            <?= $arResult["fields"]["UF_ARTNUMBER"]["EDIT_FORM_LABEL"] ?>
-        </th>
-
-        <th>
-            <?= $arResult["fields"]["UF_PRODUCT_NAME"]["EDIT_FORM_LABEL"] ?>
-        </th>
-
-        <th>
-            <?= $arResult["fields"]["UF_DETAIL_PAGE_URL"]["EDIT_FORM_LABEL"] ?>
-        </th>
-
-        <th>
-            <?= $arResult["fields"]["UF_DATE"]["EDIT_FORM_LABEL"] ?>
-        </th>
-
-        <th>
-            <?= $arResult["fields"]["UF_STATUS"]["EDIT_FORM_LABEL"] ?>
-        </th>
-
-        <th>
-            <?= $arResult["fields"]["UF_COMMENT"]["EDIT_FORM_LABEL"] ?>
-        </th>
-    </tr>
-
-    </thead>
-    <tbody>
-    <? foreach ($arResult["rows"] as $key => $arItem): ?>
-
+    <table cellspacing="0" class="reports-list-table" id="report-result-table">
+        <thead>
         <tr>
-            <td>
-                <?= $arItem["UF_ARTNUMBER"] ?>
-            </td>
+            <th>
+                <?= 'Артикул' ?>
+            </th>
 
-            <td>
-                <?= $arItem["UF_PRODUCT_NAME"] ?>
-            </td>
+            <th>
+                <?= 'Название товара' ?>
+            </th>
 
-            <td>
-                <a href="<?= $arItem["UF_DETAIL_PAGE_URL"] ?>">ссылка на товар</a>
-            </td>
+            <th>
+                <?= 'ссылка на товар' ?>
+            </th>
 
-            <td>
-                <?= $arItem["UF_DATE"] ?>
-            </td>
+            <th>
+                <?= 'дата' ?>
+            </th>
 
-            <td>
+            <th>
+                <?= 'статус' ?>
+            </th>
 
-
-                <? if ($arItem["UF_STATUS"] == 0) {
-                    echo 'Обрабатывается';
-                } else if ($arItem["UF_STATUS"] == 1) {
-                    echo 'Обработан';
-                }
-                ?>
-            </td>
-
-            <td>
-                <?= $arItem["UF_COMMENT"] ?>
-            </td>
+            <th>
+                <?= 'комментарий' ?>
+            </th>
         </tr>
 
-    <? endforeach; ?>
-    </tbody>
+        </thead>
+        <tbody>
+        <? foreach ($arResult["rows"] as $key => $arItem): ?>
 
-</table>
+            <? $query = CIBlockElement::GetByID($arItem['UF_ELEMENT_ID']);
+            $arProduct = $query->Fetch();
+
+            $query = CIBlockElement::GetProperty($arProduct['IBLOCK_ID'], $arItem['UF_ELEMENT_ID'], $arOrder = []);
+            while ($prop = $query->Fetch()) {
+                if ($prop['CODE'] == 'ARTNUMBER') {
+                    $arProduct['ARTNUMBER'] = $prop['VALUE'];
+                }
+            }
+
+            $arProduct['URL'] = CIBlock::ReplaceDetailURL($arProduct['DETAIL_PAGE_URL'], $arProduct, true, 'E');
+            ?>
+
+            <tr>
+                <td>
+                    <?= $arProduct['ARTNUMBER'] ?>
+                </td>
+
+                <td>
+                    <?= $arProduct['NAME'] ?>
+                </td>
+
+                <td>
+                    <a href="<?= $arProduct['URL'] ?>">ссылка на товар</a>
+                </td>
+
+                <td>
+                    <?= $arItem["UF_DATE"] ?>
+                </td>
+
+                <td>
+
+
+                    <? if ($arItem["UF_STATUS"] == 0) {
+                        echo 'Обрабатывается';
+                    } else if ($arItem["UF_STATUS"] == 1) {
+                        echo 'Обработан';
+                    }
+                    ?>
+                </td>
+
+                <td>
+                    <?= $arItem["UF_COMMENT"] ?>
+                </td>
+            </tr>
+
+        <? endforeach; ?>
+        </tbody>
+
+    </table>
+
+<?php
+if ($arParams['ROWS_PER_PAGE'] > 0):
+    $APPLICATION->IncludeComponent(
+        'bitrix:main.pagenavigation',
+        '',
+        array(
+            'NAV_OBJECT' => $arResult['nav_object'],
+            'SEF_MODE' => 'N',
+        ),
+        false
+    );
+endif;
+?>

@@ -39,16 +39,16 @@ if (!empty($arResult['ERROR'])) {
             <td><?= $arResult['fields']['UF_FULLNAME']['EDIT_FORM_LABEL'] ?>:</td>
             <? if (isset($arResult['USER_DETAIL_LINK'])): ?>
                 <td>
-                    <a href="<?= $arResult['USER_DETAIL_LINK'] ?>"><?= $arResult['fields']['UF_FULLNAME']['VALUE'] ?></a>
+                    <a href="<?= $arResult['USER_DETAIL_LINK'] ?>"><?= $arResult['row']['UF_FULLNAME'] ?></a>
                 </td>
             <? else: ?>
-                <td><?= $arResult['fields']['UF_FULLNAME']['VALUE'] ?></td>
+                <td><?= $arResult['row']['UF_FULLNAME']?></td>
             <? endif; ?>
         </tr>
 
         <tr>
             <td><?= $arResult['fields']['UF_PHONE']['EDIT_FORM_LABEL'] ?>:</td>
-            <td><?= $arResult['fields']['UF_PHONE']['VALUE'] ?></td>
+            <td><?= $arResult['row']['UF_PHONE']?></td>
         </tr>
 
         <tr>
@@ -59,7 +59,7 @@ if (!empty($arResult['ERROR'])) {
         <tr>
             <td>Название товара:</td>
             <td>
-                <a href="<?= $arResult['fields']['UF_DETAIL_PAGE_URL']['VALUE'] ?>"><?= $arResult['fields']['PRODUCT']['NAME'] ?></a>
+                <a href="<?= $arResult['fields']['DETAIL_PAGE_URL']['VALUE'] ?>"><?= $arResult['fields']['PRODUCT']['NAME'] ?></a>
             </td>
         </tr>
 
@@ -75,12 +75,12 @@ if (!empty($arResult['ERROR'])) {
 
         <tr>
             <td><?= $arResult['fields']['UF_DESIRED_PRICE']['EDIT_FORM_LABEL'] ?>:</td>
-            <td><?= $arResult['fields']['UF_DESIRED_PRICE']['VALUE'] ?> рублей</td>
+            <td><?= $arResult['row']['UF_DESIRED_PRICE'] ?> рублей</td>
         </tr>
         <tr>
             <td><?= $arResult['fields']['UF_COMMENT']['EDIT_FORM_LABEL'] ?>:</td>
 
-            <? if (empty($arResult['fields']['UF_COMMENT']['VALUE'])): ?>
+            <? if (empty($arResult['row']['UF_COMMENT'])): ?>
                 <td class="comment"><textarea name="comment" id="comment" required></textarea></td>
             <? else: ?>
                 <td class="comment2"><?= $arResult['fields']['UF_COMMENT']['VALUE'] ?> </td>

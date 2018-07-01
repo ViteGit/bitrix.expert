@@ -97,23 +97,6 @@ $APPLICATION->SetTitle("Продукция");
 		"USE_REVIEW" => "N",
 		"USE_STORE" => "N"
 	)
-);?>
-<div style="display:none">
-	<div id="add_form">
-		 <?$APPLICATION->IncludeComponent(
-	"mycomponents:my.hl.add.form",
-	".default",
-	Array(
-		"BLOCK_ID" => "1",
-		"CHECK_PERMISSIONS" => "N",
-		"COMPONENT_TEMPLATE" => ".default",
-		"LIST_URL" => "",
-		"ROW_ID" => $_REQUEST["ID"],
-		"ROW_KEY" => "ID"
-	)
-);?>
-	</div>
-</div>
-
-
- <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><br>
+ <br>
+ <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
